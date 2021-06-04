@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tv>
+	<channel><tabIndex>0</tabIndex><title>BHtv</title></channel>
+	<channel><tabIndex>1</tabIndex><title>Cultura 24 TV</title></channel>
+	<channel><tabIndex>2</tabIndex><title>Exitosa Noticias</title></channel>
+	<channel><tabIndex>3</tabIndex><title>La Karibeña</title></channel>
+	<channel><tabIndex>4</tabIndex><title>Mega TV</title></channel>
+	<channel><tabIndex>5</tabIndex><title>Monterrico TV</title></channel>
+	<channel><tabIndex>6</tabIndex><title>Pax TV</title></channel>
+	<channel><tabIndex>7</tabIndex><title>TV Cosmos</title></channel>
+	<channel><tabIndex>8</tabIndex><title>TV Perú Noticias</title></channel>
+	<channel><tabIndex>9</tabIndex><title>UCI</title></channel>
+	<channel><tabIndex>10</tabIndex><title>Via Televisión</title></channel>
+</tv>

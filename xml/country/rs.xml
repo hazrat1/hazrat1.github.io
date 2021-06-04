@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rs>
+	<channel><tabIndex>0</tabIndex><title>Kurir TV</title></channel>
+	<channel><tabIndex>1</tabIndex><title>Muzzik Cafe&#38;Club</title></channel>
+	<channel><tabIndex>2</tabIndex><title>Muzzik HipHop</title></channel>
+	<channel><tabIndex>3</tabIndex><title>Muzzik Jeka</title></channel>
+	<channel><tabIndex>4</tabIndex><title>Muzzik Mediteraneo</title></channel>
+	<channel><tabIndex>5</tabIndex><title>Muzzik OKK</title></channel>
+	<channel><tabIndex>6</tabIndex><title>Muzzik Replay</title></channel>
+	<channel><tabIndex>7</tabIndex><title>Muzzik Rock&#38;Roll</title></channel>
+	<channel><tabIndex>8</tabIndex><title>Muzzik Saculatac</title></channel>
+	<channel><tabIndex>9</tabIndex><title>Muzzik TV </title></channel>
+	<channel><tabIndex>10</tabIndex><title>Muzzik Worldwide</title></channel>
+	<channel><tabIndex>11</tabIndex><title>Red TV</title></channel>
+	<channel><tabIndex>12</tabIndex><title>RTV AS</title></channel>
+	<channel><tabIndex>13</tabIndex><title>RTV City Ub</title></channel>
+	<channel><tabIndex>14</tabIndex><title>Belle Amie</title></channel>
+	<channel><tabIndex>15</tabIndex><title>TV Duga Plus</title></channel>
+	<channel><tabIndex>16</tabIndex><title>TV Hram-EXYU</title></channel>
+</rs>

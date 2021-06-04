@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tv>
+	<channel><tabIndex>0</tabIndex><title>Ajyal TV ARB</title></channel>
+	<channel><tabIndex>1</tabIndex><title>Alfajer Tv HD 2</title></channel>
+	<channel><tabIndex>2</tabIndex><title>Falastini</title></channel>
+	<channel><tabIndex>3</tabIndex><title>Maan News</title></channel>
+	<channel><tabIndex>4</tabIndex><title>Marah FM</title></channel>
+	<channel><tabIndex>5</tabIndex><title>MusawaChannel</title></channel>
+	<channel><tabIndex>6</tabIndex><title>Palestine Mubasher</title></channel>
+	<channel><tabIndex>7</tabIndex><title>Palestine Satellite</title></channel>
+	<channel><tabIndex>8</tabIndex><title>Palestine Today</title></channel>
+</tv>

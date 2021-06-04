@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tv>
+	<channel><tabIndex>0</tabIndex><title>Al Jazeera Arabic</title></channel>
+	<channel><tabIndex>1</tabIndex><title>Al Jazeera Balkans</title></channel>
+	<channel><tabIndex>2</tabIndex><title>Al Jazeera Documentary</title></channel>
+	<channel><tabIndex>3</tabIndex><title>Al Jazeera English</title></channel>
+	<channel><tabIndex>4</tabIndex><title>Al Jazeera Mubasher</title></channel>
+	<channel><tabIndex>5</tabIndex><title>Al Rayan</title></channel>
+	<channel><tabIndex>6</tabIndex><title>Al Rayyan Al Qadeem</title></channel>
+	<channel><tabIndex>7</tabIndex><title>Qatar TV</title></channel>
+	<channel><tabIndex>8</tabIndex><title>Qatar TV 2</title></channel>
+</tv>

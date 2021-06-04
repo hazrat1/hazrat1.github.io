@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tv>
+	<channel><tabIndex>0</tabIndex><title>Caçavision</title></channel>
+	<channel><tabIndex>1</tabIndex><title>Kuriakos Cine</title></channel>
+	<channel><tabIndex>2</tabIndex><title>Kuriakos Kids</title></channel>
+	<channel><tabIndex>3</tabIndex><title>Kuriakos Music</title></channel>
+	<channel><tabIndex>4</tabIndex><title>Porto Canal</title></channel>
+	<channel><tabIndex>5</tabIndex><title>RTP Acores</title></channel>
+	<channel><tabIndex>6</tabIndex><title>RTP</title></channel>
+	<channel><tabIndex>7</tabIndex><title>RTP Internacional</title></channel>
+	<channel><tabIndex>8</tabIndex><title>RTP Madeira</title></channel>
+	<channel><tabIndex>9</tabIndex><title>RTP Africa</title></channel>
+	<channel><tabIndex>10</tabIndex><title>RTP 3</title></channel>
+</tv>
