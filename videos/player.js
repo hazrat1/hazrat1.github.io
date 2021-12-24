@@ -25,6 +25,7 @@ var sound = 1;
 var pList = 0;
 var zoom = 0;
 var back = 0;
+var landscape = 1;
 navigator.spatialNavigationEnabled = true;
 const volume = navigator.volumeManager;
 function handleKeyDown(evt) {
