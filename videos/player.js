@@ -127,6 +127,21 @@ function handleKeyDown(evt) {
 			player.api("seek", seek-15);
             evt.preventDefault();
 		break;
+	case '*':
+            if (landscape == 1 && document.documentElement.clientWidth == 240) {
+                landscape = 0;
+                document.getElementById("wap").style.width = "240px";
+                document.getElementById("wap").style.margin = "0px 0px 0px 0px";
+                document.getElementById("wap").style.transform = "rotate(0deg)";
+                document.getElementById("body_id").style.margin = "40px 0px 0px 0px";
+            } else if (document.documentElement.clientWidth == 240) {
+                landscape = 1;
+                document.getElementById("wap").style.width = "294px";
+                document.getElementById("wap").style.margin = "0px 0px 0px 0px";
+                document.getElementById("wap").style.transform = "rotate(90deg)";
+                document.getElementById("body_id").style.margin = "36.5px 0px 0px -27.5px";
+            }
+        break;
      }
 }
 document.addEventListener('keydown', handleKeyDown);
