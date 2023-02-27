@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="my-player"></div>
+</body>
+<link rel="stylesheet" href="https://npoplayer-test.s3.eu-central-1.amazonaws.com/assets/build/npoplayer.css">
+</style>
+<script src="https://npoplayer-test.s3.eu-central-1.amazonaws.com/assets/build/npoplayer.js"></script>
+<script>
+    let conf = {
+        key: "C9FA1502-1D36-4262-AECB-D14F72A887A3",
+        analytics: {
+            key: ""
+        },
+        cast: {
+            enable: true
+        },
+        playback: {
+            muted: false,
+            autoplay: true
+        },
+        location: {
+            ui: "//cdn.bitmovin.com/player/web/8/bitmovinplayer-ui.js",
+            ui_css: "//cdn.bitmovin.com/player/web/8/bitmovinplayer-ui.css",
+        }
+    };
+</script>
+<script>
+    let container = document.getElementById("my-player");
+    let jwt =
+        "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Nzc0NzUxMDYsInN1YiI6IkxJX0JWTl80NTg5MTA3IiwiaXNzIjoiYnZuIiwiY2lwIjoiMTE4LjE3OS4xOTQuMTc3IiwiYWdlIjoyNX0.3O5UC_d0kWMG0GIFYSfokuoOSWCbKQqY0uA22GQQDlc";
+    let npotag = {
+        brand: "",
+        brand_id: "",
+        platform: "web",
+        platform_version: "1.1.0",
+        debug: false,
+    };
+    let player = new NpoPlayer.default(container, conf, npotag);
+    let options = {
+        endpoint: 'https://prod.npoplayer.nl'
+    };
+    player.loadStream(jwt, options);
+</script>
+</html>
