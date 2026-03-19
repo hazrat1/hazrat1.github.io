@@ -1,7 +1,132 @@
 <!DOCTYPE html>
-<html>
-<body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily News to Kindle</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+    <header class="bg-white border-b border-slate-200">
+        <div class="max-w-5xl mx-auto px-6 py-12 text-center">
+            <h1 class="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">Daily News to Kindle</h1>
+            <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
+                High-quality, automated EPUB editions of your favorite newspapers, optimized for E-Ink devices.
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 py-12">
+        
+        <div id="news-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            </div>
+
+        <section class="mt-16 bg-blue-600 rounded-2xl p-8 text-center text-white shadow-xl">
+            <h2 class="text-2xl font-bold">Want Automatic Delivery?</h2>
+            <p class="mt-2 text-blue-100">Get today's edition sent directly to your Kindle every day.</p>
+            <div class="mt-6">
+                <a id="mailto-link" href="#" class="inline-block bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition-colors">
+                    <i class="fa-solid fa-envelope mr-2"></i> Request Auto-Delivery at hazrat.dev@protonmail.com
+                </a>
+            </div>
+            <p class="mt-4 text-xs text-blue-200 uppercase tracking-widest font-medium">Support the project via donation</p>
+        </section>
+
+        <section class="mt-16 border-t border-slate-200 pt-10">
+            <div class="bg-slate-100 rounded-xl p-6 text-sm text-slate-600 leading-relaxed">
+                <h3 class="font-bold text-slate-800 mb-3 flex items-center">
+                    <i class="fa-solid fa-circle-exclamation mr-2 text-amber-500"></i> Disclaimer
+                </h3>
+                <p class="mb-3">
+                    This repository utilizes automation scripts to aggregate and format content from news platforms for <strong>personal and non-commercial use only</strong>. The primary goal is to provide a better reading experience on E-ink devices.
+                </p>
+                <ul class="list-disc ml-5 space-y-1">
+                    <li>Scraping content from websites may violate the terms of service of those platforms.</li>
+                    <li>The maintainers do not endorse or encourage any misuse of this content.</li>
+                    <li>Users are advised to comply with the terms of service of the original content providers and GitHub.</li>
+                </ul>
+                <p class="mt-3 font-semibold">Use this repository responsibly and at your own risk.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-12 text-center text-slate-400 text-xs">
+        &copy; 2026 Daily News to Kindle Automator
+    </footer>
+
+    <script>
+      
+        const newspapers = [
+            { name: "Prothom Alo", color: "border-rose-500", icon: "fa-newspaper" },
+            { name: "The Daily Star", color: "border-blue-800", icon: "fa-star" },
+            { name: "The Business Standard", color: "border-amber-500", icon: "fa-chart-line" },
+            { name: "BBC Bangla", color: "border-red-600", icon: "fa-globe" }
+        ];
+
+        const contactEmail = "hazrat.dev@protonmail.com";
+
+        function getTargetDate() {
+          const options = { timeZone: "Asia/Dhaka", hour12: false };
+          const bstString = new Date().toLocaleString("en-US", options);
+          const bstNow = new Date(bstString);
+      
+          const hours = bstNow.getHours();
+          const minutes = bstNow.getMinutes();
+      
+          const cutoffHour = 14;
+          const cutoffMinute = 15;
+      
+          let targetDate = new Date(bstNow);
+      
+          if (hours < cutoffHour || (hours === cutoffHour && minutes < cutoffMinute)) {
+              targetDate.setDate(targetDate.getDate() - 1);
+          }
+      
+          const year = targetDate.getFullYear();
+          const month = String(targetDate.getMonth() + 1).padStart(2, '0');
+          const day = String(targetDate.getDate()).padStart(2, '0');
+          
+          return `${year}-${month}-${day}`;
+      }
+
+        function initPage() {
+            const dateStr = getTargetDate();
+            const grid = document.getElementById('news-grid');
+            
+            newspapers.forEach(news => {
+                const fileName = `${news.name} - ${dateStr}.epub`;
+                const fileUrl = `https://feed.softloftbd.ga/${encodeURIComponent(fileName)}`;
+
+                const card = `
+                    <a href="${fileUrl}" download class="group relative bg-white p-6 rounded-2xl border-l-4 ${news.color} shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-800">${news.name}</h3>
+                                <p class="text-slate-400 text-sm mt-1">Edition: ${dateStr}</p>
+                            </div>
+                            <div class="text-slate-300 group-hover:text-slate-500 transition-colors">
+                                <i class="fa-solid ${news.icon} text-3xl"></i>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex items-center text-sm font-semibold text-blue-600">
+                            Download EPUB <i class="fa-solid fa-arrow-down ml-2 text-xs"></i>
+                        </div>
+                    </a>
+                `;
+                grid.innerHTML += card;
+            });
+
+            const mailtoBody = `Hi,%0A%0AI want to support the project! Please set up automatic delivery for: _ days/months/year.%0A%0AMy Kindle Address: `;
+            document.getElementById('mailto-link').href = `mailto:${contactEmail}?subject=Automatic Kindle Delivery Request&body=${mailtoBody}`;
+        }
+
+        window.onload = initPage;
+    </script>
 </body>
 </html>
