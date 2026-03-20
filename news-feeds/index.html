@@ -31,8 +31,8 @@
             <h2 class="text-2xl font-bold">Want Automatic Delivery?</h2>
             <p class="mt-2 text-blue-100">Get today's edition sent directly to your Kindle every day.</p>
             <div class="mt-6">
-                <a id="mailto-link" href="#" class="inline-block bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition-colors">
-                    <i class="fa-solid fa-envelope mr-2"></i> Request Auto-Delivery at hazrat.dev@protonmail.com
+                <a id="donation-link" href="#" class="inline-block bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition-colors">
+                    <i class="fa-solid fa-envelope mr-2"></i> Request Auto-Delivery
                 </a>
             </div>
             <p class="mt-4 text-xs text-blue-200 uppercase tracking-widest font-medium">Support the project via donation</p>
@@ -56,12 +56,35 @@
         </section>
     </main>
 
-    <footer class="py-12 text-center text-slate-400 text-xs">
-        &copy; 2026 Daily News to Kindle Automator
+    <!--<footer class="py-12 text-center text-slate-400 text-xs">-->
+    <!--    &copy; 2026 Daily News to Kindle Automator-->
+    <!--</footer>-->
+    
+    <footer class="mt-20 border-t border-slate-100 bg-white">
+        <div class="max-w-6xl mx-auto px-6 py-12">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                
+                <div class="text-center md:text-left">
+                    <h3 class="font-black text-xl tracking-tighter text-slate-900">News<span class="text-blue-600">to</span>Kindle</h3>
+                    <p class="text-xs text-slate-400 mt-1 uppercase tracking-widest font-bold">Automated Daily Delivery</p>
+                </div>
+    
+                <nav class="flex flex-wrap justify-center gap-6 md:gap-10">
+                    <a href="https://feed.softloftbd.ga/donation.php" class="text-sm font-bold text-slate-600 hover:text-blue-600 transition-colors">Support</a>
+                    <a href="https://feed.softloftbd.ga/status.php" class="text-sm font-bold text-slate-600 hover:text-blue-600 transition-colors">My Subscription</a>
+                    <a href="mailto:hazrat.dev@protonmail.com" class="text-sm font-bold text-slate-600 hover:text-blue-600 transition-colors">Contact</a>
+                </nav>
+    
+                <div class="flex items-center gap-4">
+                    <a href="https://github.com/hazrat1" target="_blank" class="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-600 hover:bg-slate-900 hover:text-white transition-all shadow-sm">
+                        <i class="fa-brands fa-github text-lg"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <script>
-      
         const newspapers = [
             { name: "Prothom Alo", color: "border-rose-500", icon: "fa-newspaper" },
             { name: "The Daily Star", color: "border-blue-800", icon: "fa-star" },
@@ -72,28 +95,28 @@
         const contactEmail = "hazrat.dev@protonmail.com";
 
         function getTargetDate() {
-          const options = { timeZone: "Asia/Dhaka", hour12: false };
-          const bstString = new Date().toLocaleString("en-US", options);
-          const bstNow = new Date(bstString);
-      
-          const hours = bstNow.getHours();
-          const minutes = bstNow.getMinutes();
-      
-          const cutoffHour = 14;
-          const cutoffMinute = 15;
-      
-          let targetDate = new Date(bstNow);
-      
-          if (hours < cutoffHour || (hours === cutoffHour && minutes < cutoffMinute)) {
-              targetDate.setDate(targetDate.getDate() - 1);
-          }
-      
-          const year = targetDate.getFullYear();
-          const month = String(targetDate.getMonth() + 1).padStart(2, '0');
-          const day = String(targetDate.getDate()).padStart(2, '0');
-          
-          return `${year}-${month}-${day}`;
-      }
+            const options = { timeZone: "Asia/Dhaka", hour12: false };
+            const bstString = new Date().toLocaleString("en-US", options);
+            const bstNow = new Date(bstString);
+        
+            const hours = bstNow.getHours();
+            const minutes = bstNow.getMinutes();
+        
+            const cutoffHour = 14;
+            const cutoffMinute = 15;
+        
+            let targetDate = new Date(bstNow);
+        
+            if (hours < cutoffHour || (hours === cutoffHour && minutes < cutoffMinute)) {
+                targetDate.setDate(targetDate.getDate() - 1);
+            }
+        
+            const year = targetDate.getFullYear();
+            const month = String(targetDate.getMonth() + 1).padStart(2, '0');
+            const day = String(targetDate.getDate()).padStart(2, '0');
+            
+            return `${year}-${month}-${day}`;
+        }
 
         function initPage() {
             const dateStr = getTargetDate();
@@ -101,7 +124,7 @@
             
             newspapers.forEach(news => {
                 const fileName = `${news.name} - ${dateStr}.epub`;
-                const fileUrl = `https://feed.softloftbd.ga/${encodeURIComponent(fileName)}`;
+                const fileUrl = `./${encodeURIComponent(fileName)}`;
 
                 const card = `
                     <a href="${fileUrl}" download class="group relative bg-white p-6 rounded-2xl border-l-4 ${news.color} shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
@@ -121,9 +144,8 @@
                 `;
                 grid.innerHTML += card;
             });
-
-            const mailtoBody = `Hi,%0A%0AI want to support the project! Please set up automatic delivery for: _ days/months/year.%0A%0AMy Kindle Address: `;
-            document.getElementById('mailto-link').href = `mailto:${contactEmail}?subject=Automatic Kindle Delivery Request&body=${mailtoBody}`;
+            
+            document.getElementById('donation-link').href = `https://feed.softloftbd.ga/donation.php`;
         }
 
         window.onload = initPage;
